@@ -1,0 +1,39 @@
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-content>
+            <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Compose A Notification</ng-template>
+                    <mat-form-field>
+                        <textarea matInput placeholder="Compose A Message" formControlName="firstCtrl" required></textarea>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Select Recipient Groups</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Send Notification</ng-template>
+                    You are now done.
+                    <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </mat-card-content>
+    </mat-card>
+</div>
