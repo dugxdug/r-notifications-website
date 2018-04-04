@@ -1,7 +1,7 @@
 @echo off
 
 echo start deploying
-cd client-app
+cd src
 IF %ERRORLEVEL% NEQ 0 goto error
 
 echo installing packages
