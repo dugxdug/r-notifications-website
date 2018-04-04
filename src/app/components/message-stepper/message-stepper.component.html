@@ -4,25 +4,35 @@
             <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
                 <mat-step [stepControl]="firstFormGroup">
                     <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Compose A Notification</ng-template>
-                    <mat-form-field>
-                        <textarea matInput placeholder="Compose A Message" formControlName="firstCtrl" required></textarea>
-                    </mat-form-field>
-                    <div>
-                        <button mat-button matStepperNext>Next</button>
-                    </div>
+                        <ng-template matStepLabel>Compose A Notification</ng-template>
+                        <mat-form-field>
+                            <input matInput placeholder="Subject" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <textarea matInput row="5" placeholder="Message" formControlName="firstCtrl" required></textarea>
+                        </mat-form-field>
+                        <div class="buttonContainer-end">
+                            <button mat-raised-button color="primary" matStepperNext>Next Step</button>
+                        </div>
                     </form>
                 </mat-step>
                 <mat-step [stepControl]="secondFormGroup">
                     <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Select Recipient Groups</ng-template>
-                    <mat-form-field>
-                        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-                    </mat-form-field>
-                    <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
-                    </div>
+                        <ng-template matStepLabel>Select Recipient Groups</ng-template>
+                        <mat-grid-list cols="4" rowHeight="200px" gutterSize="30px" class="gridContainer">
+                            <mat-grid-tile [ngStyle]="{'background-color':sales === true ? 'rgba(0, 24, 158, .5)' : 'rgba(0, 24, 158, 1)' }">Engineering</mat-grid-tile>
+                            <mat-grid-tile>Sales</mat-grid-tile>
+                            <mat-grid-tile>Marketing Research</mat-grid-tile>
+                            <mat-grid-tile>Project Management</mat-grid-tile>
+                            <mat-grid-tile>Human Resources</mat-grid-tile>
+                            <mat-grid-tile>Content</mat-grid-tile>
+                            <mat-grid-tile>Implementations</mat-grid-tile>
+                            <mat-grid-tile>Finance</mat-grid-tile>
+                        </mat-grid-list>
+                        <div class="buttonContainer-between">
+                            <button mat-raised-button color="primary" matStepperPrevious>Previous Step</button>
+                            <button mat-raised-button color="primary" matStepperNext>Next Step</button>
+                        </div>
                     </form>
                 </mat-step>
                 <mat-step>

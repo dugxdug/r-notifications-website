@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./message-stepper.component.scss']
 })
 export class MessageStepperComponent implements OnInit {
+    sales = true;
     firstFormGroup: FormGroup;
     secondFormGroup: FormGroup;
 
@@ -18,7 +19,6 @@ export class MessageStepperComponent implements OnInit {
           firstCtrl: ['', Validators.required]
         });
         this.secondFormGroup = this._formBuilder.group({
-          secondCtrl: ['', Validators.required]
         });
-      }
+    }
 }

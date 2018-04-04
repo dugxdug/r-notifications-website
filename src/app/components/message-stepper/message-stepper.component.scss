@@ -14,3 +14,62 @@ mat-card {
         height: 100%;
     }
 }
+
+textarea {
+    width: 98%;
+    height: 300px;
+}
+
+button {
+    padding: 2px 60px;
+    font-size: 24px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.buttonContainer-end {
+    width: 100%;
+    padding: 0;
+    margin: 100px auto 0px auto;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonContainer-between {
+    width: 100%;
+    padding: 0;
+    margin: 100px auto 0px auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-horizontal-stepper {
+    height: 100%;
+}
+
+mat-grid-tile {
+    font-size: 25px;
+    background-color: rgba(0, 24, 158, .5);
+    color: white;
+}
+
+.unselectedButton {
+    background-color: rgba(0, 24, 158, .5);
+}
+
+.selectedButton {
+    background-color: rgba(0, 24, 158, 1);
+}
+
+.gridContainer {
+    button {
+        padding: 0px !important;
+        margin: 0px !important;
+        text-decoration: none;
+        border: none;
+    }
+}
