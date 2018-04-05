@@ -16,7 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatStepperModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
   ],
   exports: [
     MatToolbarModule,
@@ -25,7 +25,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatInputModule,
     MatStepperModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
   ],
 })
 export class MaterialModule { }

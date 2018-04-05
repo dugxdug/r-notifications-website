@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardPageComponent } from './pages/dashboard/dashboard.component';
 import { NotificationPageComponent } from './pages/notification/notification.component';
 import { MainPageComponent } from './pages/main/main.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [{
   path: '',
@@ -18,6 +19,10 @@ const routes: Routes = [{
       component: NotificationPageComponent,
     },
   ]
+},
+{
+  path: 'auth',
+  component: AuthComponent
 }];
 
 @NgModule({

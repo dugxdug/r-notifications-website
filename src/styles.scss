@@ -1,25 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+// body {
+//     margin: 0 !important;
+// }
+
+// html {
+//     height: 100%;
+
+//     body {
+//         margin: 0 !important;
+//         background-color: rgb(236, 236, 236);
+//         height: 100%;
+
+//         app-root {
+//             height: 100%;
+
+//             main {
+//                 height: 100%;
+
+//             }
+//         }
+//     }
+// }
 body {
-    margin: 0 !important;
+    background-color: rgb(236, 236, 236); // #00a7a6;
 }
 
-html {
+.main-card {
+    display: block;
+    box-shadow: 0px 0px 50px 5px rgba(0,0,0,.2) !important;
+    margin: 150px 200px 50px 200px;
     height: 100%;
 
-    body {
-        margin: 0 !important;
-        background-color: rgb(236, 236, 236);
+    mat-card-content {
+        text-align: center;
         height: 100%;
-
-        app-root {
-            height: 100%;
-
-            main {
-                height: 100%;
-
-            }
-        }
     }
 }
