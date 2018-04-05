@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   name: 'Production',
-  reliasAlertsApi: 'https://r-notifications-api.azurewebsites.net/'
+  reliasAlertsApi: 'https://r-notifications-api.azurewebsites.net/api/v1/'
 };
