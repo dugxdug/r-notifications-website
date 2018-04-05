@@ -18,11 +18,8 @@ import { MessageStepperComponent } from './components/message-stepper/message-st
 import { AuthComponent } from './auth/auth.component';
 
 import { AuthService } from './auth/auth.service';
-<<<<<<< HEAD
 import { NotificationsService } from './services/notifications/notifications.service';
-=======
 import { AuthInterceptor } from './auth/auth.interceptor';
->>>>>>> 526a8a65d2620a843f0405bf9f9b943d3bf9ba4d
 
 @NgModule({
   declarations: [
@@ -44,17 +41,13 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HttpClientModule
   ],
   providers: [
-<<<<<<< HEAD
-    AuthService,
-    NotificationsService
-=======
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
-    AuthService
->>>>>>> 526a8a65d2620a843f0405bf9f9b943d3bf9ba4d
+    AuthService,
+    NotificationsService
   ],
   bootstrap: [AppComponent]
 })
