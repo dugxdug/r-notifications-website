@@ -10,13 +10,17 @@ import { UsersService } from '../../services/users/users.service';
 })
 
 export class AdminToolsPageComponent implements OnInit {
-    displayedColumns = ['name', 'perference', 'department', 'editLink'];
-    dataSource = new MatTableDataSource(ELEMENT_DATA);
-    constructor(private usersService: UsersService) { }
+    displayedColumns = ['name', 'email', 'notificationPref', 'departments'];
+    USER_LIST: Array<User> = [];
+    dataSource: MatTableDataSource<User>;
+    constructor(private usersService: UsersService) {}
 
     ngOnInit() {
         this.usersService.getAllUsers().subscribe((res) => {
-            console.log(res);
+            res.forEach(item => {
+                this.USER_LIST.push(item);
+            });
+            this.dataSource = new MatTableDataSource(this.USER_LIST);
         });
     }
 
@@ -25,22 +29,16 @@ export class AdminToolsPageComponent implements OnInit {
         filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
         this.dataSource.filter = filterValue;
     }
+
+    rowClicked(userInfo: any) {
+        console.log(userInfo);
+    }
 }
 
 
-export interface Element {
+export interface User {
     name: string;
-    position: string;
-  }
-
-const ELEMENT_DATA: Element[] = [
-    {position: '1/3/2018', name: 'Sample Alert 1'},
-    {position: '1/3/2018', name: 'Sample Alert 2'},
-    {position: '1/3/2018', name: 'Sample Alert 3'},
-    {position: '1/3/2018', name: 'Sample Alert 4'},
-    {position: '1/3/2018', name: 'Sample Alert 5'},
-    {position: '1/3/2018', name: 'Sample Alert 6'},
-    {position: '1/3/2018', name: 'Sample Alert 7'},
-    {position: '1/3/2018', name: 'Sample Alert 8'},
-    {position: '1/3/2018', name: 'Sample Alert 9'},
-];
+    notificationPref: string;
+    email: string;
+    departments: any[];
+}

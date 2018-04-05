@@ -13,6 +13,7 @@ import { DashboardPageComponent } from './pages/dashboard/dashboard.component';
 import { NotificationPageComponent } from './pages/notification/notification.component';
 import { MainPageComponent } from './pages/main/main.component';
 import { AdminToolsPageComponent } from './pages/admin-tools/admin-tools.component';
+import { EditUserPageComponent } from './pages/edit-user/edit-user.component';
 
 import { NavbarComponent } from './components/nav-bar/nav-bar.component';
 import { MessageStepperComponent } from './components/message-stepper/message-stepper.component';
@@ -21,6 +22,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { NotificationsService } from './services/notifications/notifications.service';
 import { UsersService } from './services/users/users.service';
+import { DepartmentService } from './services/departments/departments.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
@@ -32,7 +34,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     NavbarComponent,
     MessageStepperComponent,
     AuthComponent,
-    AdminToolsPageComponent
+    AdminToolsPageComponent,
+    EditUserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,12 +50,12 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     AuthService,
     NotificationsService,
     UsersService,
+    DepartmentService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
-    AuthService
   ],
   bootstrap: [AppComponent]
 })

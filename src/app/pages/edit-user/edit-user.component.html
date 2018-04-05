@@ -1,0 +1,38 @@
+<div class="container">
+    <mat-card class="example-card main-card">
+        <mat-card-header>
+            <div class="textContainer">
+                <span>Administractive Tools - Edit Users</span>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput placeholder="Name" [(ngModel)]="selectedEmail">
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <input matInput placeholder="Email" [(ngModel)]="selectedName">
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <mat-select placeholder="Department" [(ngModel)]="selectedDepartment" name="department">
+                        <mat-option *ngFor="let department of departments" [value]="department.name">{{department.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select placeholder="Notification Perferences" [(ngModel)]="selectedPerference" name="perference">
+                        <mat-option value="Email">Email</mat-option>
+                        <mat-option value="Slack">Slack</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="buttonContainer-between">
+                    <button mat-raised-button color="primary" (click)="backToList()">Back To Users</button>
+                    <button mat-raised-button color="primary" (click)="updateUser()">Update User</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

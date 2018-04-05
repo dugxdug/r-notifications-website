@@ -5,6 +5,7 @@ import { NotificationPageComponent } from './pages/notification/notification.com
 import { MainPageComponent } from './pages/main/main.component';
 import { AuthComponent } from './auth/auth.component';
 import { AdminToolsPageComponent } from './pages/admin-tools/admin-tools.component';
+import { EditUserPageComponent } from './pages/edit-user/edit-user.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,6 +23,10 @@ const routes: Routes = [{
     {
       path: 'admin-tools',
       component: AdminToolsPageComponent,
+    },
+    {
+      path: 'admin-tools/edit-user',
+      component: EditUserPageComponent,
     },
   ]
 },
