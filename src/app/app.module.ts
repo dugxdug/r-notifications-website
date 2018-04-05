@@ -17,7 +17,9 @@ import { NavbarComponent } from './components/nav-bar/nav-bar.component';
 import { WelcomeMessageComponent } from './components/welcome-message/welcome-message.component';
 import { MessageStepperComponent } from './components/message-stepper/message-stepper.component';
 import { AuthComponent } from './auth/auth.component';
+
 import { AuthService } from './auth/auth.service';
+import { NotificationsService } from './services/notifications/notifications.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,10 @@ import { AuthService } from './auth/auth.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    NotificationsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

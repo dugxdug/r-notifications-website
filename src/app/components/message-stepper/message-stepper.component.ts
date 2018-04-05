@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationsService } from '../../services/notifications/notifications.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -18,14 +19,17 @@ export class MessageStepperComponent implements OnInit {
         author: string;
         title: string;
         body: string;
+        type: string;
     };
 
-    constructor(private _formBuilder: FormBuilder) {
+    constructor(private _formBuilder: FormBuilder,
+    private notificationsService: NotificationsService) {
         this.notification = {
             recipients: [],
             author: 'default',
-            subject: '',
-            message: ''
+            title: '',
+            body: '',
+            type: 'email'
         };
         this.departments.push({
             name: 'Engineering',
@@ -85,6 +89,8 @@ export class MessageStepperComponent implements OnInit {
         this.notification.title = this.firstFormGroup.controls['firstCtrl'].value;
         this.notification.body = this.firstFormGroup.controls['secondCtrl'].value;
 
-        console.log(this.notification);
+        this.notificationsService.sendNotification(this.notification).subscribe(res => {
+            console.log(res);
+        });
     }
 }
