@@ -24,6 +24,7 @@ import { NotificationsService } from './services/notifications/notifications.ser
 import { UsersService } from './services/users/users.service';
 import { DepartmentService } from './services/departments/departments.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     NotificationsService,
     UsersService,
     DepartmentService,
+    AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

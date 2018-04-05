@@ -18,4 +18,8 @@ export class NotificationsService {
       `alerts/send`, body, httpOptions);
   }
 
+  getNotifications(): Observable<any> {
+    return this._http.get<any>(environment.reliasAlertsApi + 'alerts');
+  }
+
 }

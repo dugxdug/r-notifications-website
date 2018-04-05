@@ -8,7 +8,6 @@ import { User } from './users.dto';
 export class UsersService {
 
   constructor(private _http: HttpClient) { }
-
   getAllUsers(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -36,5 +35,9 @@ export class UsersService {
         return this._http.put<any>(environment.reliasAlertsApi +
             `users`, body, httpOptions);
     }
-
+    
+  me(): Observable<any> {
+    return this._http.get<any>(environment.reliasAlertsApi +
+      `auth/me`);
+  }
 }

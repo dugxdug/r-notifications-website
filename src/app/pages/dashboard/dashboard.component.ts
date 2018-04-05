@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { NotificationsService } from '../../services/notifications/notifications.service';
+import { Notification } from '../notification/notification.model';
+import { not } from '@angular/compiler/src/output/output_ast';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -8,18 +11,33 @@ import { MatTableDataSource } from '@angular/material';
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
-    displayedColumns = ['alerts', 'date'];
-    dataSource = new MatTableDataSource(ELEMENT_DATA);
+    notifications: Notification[] = [];
+    displayedColumns = ['alerts', 'author', 'date'];
+    dataSource = new MatTableDataSource(this.notifications);
 
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace
         filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
         this.dataSource.filter = filterValue;
     }
-    constructor() { }
+    constructor(
+        private _notificationService: NotificationsService
+    ) {
+    }
 
     ngOnInit() {
-
+        this._notificationService.getNotifications().subscribe(res => {
+            res.forEach(notification => this.notifications.push({
+                title: notification.title,
+                body: notification.body,
+                recipients: notification.recipients,
+                author: notification.author,
+                type: notification.type,
+                created: notification.createdDate
+            }));
+            this.dataSource = new MatTableDataSource(this.notifications);
+            console.log(this.notifications);
+        });
     }
 }
 

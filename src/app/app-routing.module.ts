@@ -6,10 +6,12 @@ import { MainPageComponent } from './pages/main/main.component';
 import { AuthComponent } from './auth/auth.component';
 import { AdminToolsPageComponent } from './pages/admin-tools/admin-tools.component';
 import { EditUserPageComponent } from './pages/edit-user/edit-user.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [{
   path: '',
   component: MainPageComponent,
+  canActivate: [AuthGuard],
   children: [
     {
       path: '',

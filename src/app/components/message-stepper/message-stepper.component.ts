@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { NotificationsService } from '../../services/notifications/notifications.service';
+import { Notification } from '../../pages/notification/notification.model';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -14,16 +16,11 @@ export class MessageStepperComponent implements OnInit {
     secondFormGroup: FormGroup;
     departments: any[] = [];
     selectedDepartments: any[] = [];
-    notification: {
-        recipients: any[],
-        author: string;
-        title: string;
-        body: string;
-        type: string;
-    };
+    notification: Notification;
 
     constructor(private _formBuilder: FormBuilder,
-    private notificationsService: NotificationsService) {
+    private notificationsService: NotificationsService,
+    private router: Router) {
         this.notification = {
             recipients: [],
             author: 'default',
@@ -82,7 +79,7 @@ export class MessageStepperComponent implements OnInit {
     sendNotification() {
         this.departments.forEach(department => {
             if (department.selected) {
-                this.selectedDepartments.push(department);
+                this.selectedDepartments.push(department.name);
             }
         });
         this.notification.recipients = this.selectedDepartments;
@@ -92,5 +89,7 @@ export class MessageStepperComponent implements OnInit {
         this.notificationsService.sendNotification(this.notification).subscribe(res => {
             console.log(res);
         });
+
+        this.router.navigate(['']);
     }
 }
