@@ -1,27 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
-    selector: 'notifications-dashboard',
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss']
+    selector: 'admin-tools',
+    templateUrl: './admin-tools.component.html',
+    styleUrls: ['./admin-tools.component.scss']
 })
-export class DashboardPageComponent implements OnInit {
-    displayedColumns = ['alerts', 'date'];
+
+export class AdminToolsPageComponent implements OnInit {
+    displayedColumns = ['name', 'perference', 'department', 'editLink'];
     dataSource = new MatTableDataSource(ELEMENT_DATA);
+    constructor(private usersService: UsersService) { }
+
+    ngOnInit() {
+        this.usersService.getAllUsers().subscribe((res) => {
+            console.log(res);
+        });
+    }
 
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace
         filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
         this.dataSource.filter = filterValue;
     }
-    constructor() { }
-
-    ngOnInit() {
-
-    }
 }
+
 
 export interface Element {
     name: string;

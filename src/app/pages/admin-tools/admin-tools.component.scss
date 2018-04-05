@@ -1,0 +1,40 @@
+.container {
+    min-height: 70%;
+    display: block;
+}
+
+mat-card-header {
+    padding-bottom: 10px;
+    border-bottom: .5px solid lightgray;
+
+    span {
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .date-column {
+      width: 60px;
+  }

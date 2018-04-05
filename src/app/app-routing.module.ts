@@ -4,6 +4,7 @@ import { DashboardPageComponent } from './pages/dashboard/dashboard.component';
 import { NotificationPageComponent } from './pages/notification/notification.component';
 import { MainPageComponent } from './pages/main/main.component';
 import { AuthComponent } from './auth/auth.component';
+import { AdminToolsPageComponent } from './pages/admin-tools/admin-tools.component';
 
 const routes: Routes = [{
   path: '',
@@ -17,6 +18,10 @@ const routes: Routes = [{
     {
       path: 'compose-notification',
       component: NotificationPageComponent,
+    },
+    {
+      path: 'admin-tools',
+      component: AdminToolsPageComponent,
     },
   ]
 },

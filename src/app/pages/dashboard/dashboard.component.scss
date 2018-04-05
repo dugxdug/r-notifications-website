@@ -6,6 +6,11 @@
 mat-card-header {
     padding-bottom: 10px;
     border-bottom: .5px solid lightgray;
+
+    span {
+        font-size: 24px;
+        font-weight: bold;
+    }
 }
 
 .textContainer {

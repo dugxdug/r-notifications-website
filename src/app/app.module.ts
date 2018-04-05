@@ -12,17 +12,16 @@ import { MaterialModule } from './shared/material.module';
 import { DashboardPageComponent } from './pages/dashboard/dashboard.component';
 import { NotificationPageComponent } from './pages/notification/notification.component';
 import { MainPageComponent } from './pages/main/main.component';
+import { AdminToolsPageComponent } from './pages/admin-tools/admin-tools.component';
 
 import { NavbarComponent } from './components/nav-bar/nav-bar.component';
 import { MessageStepperComponent } from './components/message-stepper/message-stepper.component';
 import { AuthComponent } from './auth/auth.component';
 
 import { AuthService } from './auth/auth.service';
-<<<<<<< HEAD
 import { NotificationsService } from './services/notifications/notifications.service';
-=======
+import { UsersService } from './services/users/users.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
->>>>>>> 526a8a65d2620a843f0405bf9f9b943d3bf9ba4d
 
 @NgModule({
   declarations: [
@@ -32,7 +31,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     MainPageComponent,
     NavbarComponent,
     MessageStepperComponent,
-    AuthComponent
+    AuthComponent,
+    AdminToolsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,17 +44,15 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HttpClientModule
   ],
   providers: [
-<<<<<<< HEAD
     AuthService,
-    NotificationsService
-=======
+    NotificationsService,
+    UsersService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
     AuthService
->>>>>>> 526a8a65d2620a843f0405bf9f9b943d3bf9ba4d
   ],
   bootstrap: [AppComponent]
 })
