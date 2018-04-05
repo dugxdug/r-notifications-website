@@ -34,15 +34,20 @@
         </div>
 
         <mat-table #table [dataSource]="dataSource">
-          <!-- Name Column -->
+          <!-- Title Column -->
           <ng-container matColumnDef="alerts">
             <mat-header-cell *matHeaderCellDef> Existing Alerts </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
           </ng-container>
-          <!-- Position Column -->
+          <!-- Author date Column -->
+          <ng-container matColumnDef="author" class="date-column">
+              <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+            </ng-container>
+          <!-- Created date Column -->
           <ng-container matColumnDef="date" class="date-column">
             <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.created}} </mat-cell>
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

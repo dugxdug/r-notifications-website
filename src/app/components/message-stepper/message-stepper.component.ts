@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { NotificationsService } from '../../services/notifications/notifications.service';
+import { Notification } from '../../pages/notification/notification.model';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -15,13 +16,7 @@ export class MessageStepperComponent implements OnInit {
     secondFormGroup: FormGroup;
     departments: any[] = [];
     selectedDepartments: any[] = [];
-    notification: {
-        recipients: any[],
-        author: string;
-        title: string;
-        body: string;
-        type: string;
-    };
+    notification: Notification;
 
     constructor(private _formBuilder: FormBuilder,
     private notificationsService: NotificationsService,
