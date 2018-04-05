@@ -6,10 +6,10 @@
                     <form [formGroup]="firstFormGroup">
                         <ng-template matStepLabel>Compose A Notification</ng-template>
                         <mat-form-field>
-                            <input matInput placeholder="Subject" required>
+                            <input matInput placeholder="Subject" formControlName="firstCtrl" required>
                         </mat-form-field>
                         <mat-form-field>
-                            <textarea matInput row="5" placeholder="Message" formControlName="firstCtrl" required></textarea>
+                            <textarea matInput row="5" placeholder="Message" formControlName="secondCtrl" required></textarea>
                         </mat-form-field>
                         <div class="buttonContainer-end">
                             <button mat-raised-button color="primary" matStepperNext>Next Step</button>
@@ -20,14 +20,8 @@
                     <form [formGroup]="secondFormGroup">
                         <ng-template matStepLabel>Select Recipient Groups</ng-template>
                         <mat-grid-list cols="4" rowHeight="200px" gutterSize="30px" class="gridContainer">
-                            <mat-grid-tile [ngStyle]="{'background-color':sales === true ? 'rgba(0, 24, 158, .5)' : 'rgba(0, 24, 158, 1)' }">Engineering</mat-grid-tile>
-                            <mat-grid-tile>Sales</mat-grid-tile>
-                            <mat-grid-tile>Marketing Research</mat-grid-tile>
-                            <mat-grid-tile>Project Management</mat-grid-tile>
-                            <mat-grid-tile>Human Resources</mat-grid-tile>
-                            <mat-grid-tile>Content</mat-grid-tile>
-                            <mat-grid-tile>Implementations</mat-grid-tile>
-                            <mat-grid-tile>Finance</mat-grid-tile>
+                            <mat-grid-tile *ngFor="let department of departments" (click)="gridClicked(department.name)" 
+                            [ngStyle]="{'background-color':department.selected ? 'rgba(0, 24, 158, 1)' : 'rgba(0, 24, 158, .5)'}">{{department.name}}</mat-grid-tile>
                         </mat-grid-list>
                         <div class="buttonContainer-between">
                             <button mat-raised-button color="primary" matStepperPrevious>Previous Step</button>
@@ -37,10 +31,12 @@
                 </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Send Notification</ng-template>
-                    You are now done.
-                    <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <div class="textContainer">
+                        <span>Your Notification is Ready to be Sent</span>
+                    </div>
+                    <div class="buttonContainer-between">
+                        <button mat-raised-button color="primary" (click)="stepper.reset()">Restart</button>
+                        <button mat-raised-button color="primary" (click)="sendNotification()">Send</button>
                     </div>
                 </mat-step>
             </mat-horizontal-stepper>

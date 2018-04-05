@@ -11,14 +11,78 @@ export class MessageStepperComponent implements OnInit {
     sales = true;
     firstFormGroup: FormGroup;
     secondFormGroup: FormGroup;
+    departments: any[] = [];
+    selectedDepartments: any[] = [];
+    notification: {
+        selectedDepartments: any[],
+        subject: string;
+        message: string;
+    };
 
-    constructor(private _formBuilder: FormBuilder) { }
+    constructor(private _formBuilder: FormBuilder) {
+        this.notification = {
+            selectedDepartments: [],
+            subject: '',
+            message: ''
+        };
+        this.departments.push({
+            name: 'Engineering',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Sales',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Marketing Research',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Project Management',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Human Resources',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Content',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Implementations',
+            selected: false
+        });
+        this.departments.push({
+            name: 'Finance',
+            selected: false
+        });
+    }
 
     ngOnInit() {
         this.firstFormGroup = this._formBuilder.group({
-          firstCtrl: ['', Validators.required]
+          firstCtrl: ['', Validators.required],
+          secondCtrl: ['']
         });
         this.secondFormGroup = this._formBuilder.group({
         });
+    }
+
+    gridClicked(selectedDepartment: string) {
+        this.departments[this.departments.findIndex(department => department.name === selectedDepartment)].selected =
+         !this.departments[this.departments.findIndex(department => department.name === selectedDepartment)].selected;
+    }
+
+    sendNotification() {
+        this.departments.forEach(department => {
+            if (department.selected) {
+                this.selectedDepartments.push(department);
+            }
+        });
+        this.notification.selectedDepartments = this.selectedDepartments;
+        this.notification.subject = this.firstFormGroup.controls['firstCtrl'].value;
+        this.notification.message = this.firstFormGroup.controls['secondCtrl'].value;
+
+        console.log(this.notification);
     }
 }

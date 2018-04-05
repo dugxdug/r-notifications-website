@@ -73,3 +73,14 @@ mat-grid-tile {
         border: none;
     }
 }
+
+.textContainer {
+    height: 400px;
+    display: flex;
+    
+    span {
+        font-size: 45px;
+        font-weight: 700;
+        margin: auto;
+    }
+}
