@@ -24,8 +24,8 @@ export class MessageStepperComponent implements OnInit {
         this.notification = {
             recipients: [],
             author: 'default',
-            subject: '',
-            message: ''
+            body: '',
+            title: ''
         };
         this.departments.push({
             name: 'Engineering',
