@@ -52,6 +52,7 @@ export class AuthComponent implements OnInit {
         this.token = res.token;
         if (res.auth) {
           localStorage.setItem('user', this.b64EncodeUnicode(JSON.stringify(res.user)));
+          localStorage.setItem('token', res.token);
           this.router.navigate(['']);
         } else {
           alert('Invalid credentials');
