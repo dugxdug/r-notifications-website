@@ -14,14 +14,16 @@ export class MessageStepperComponent implements OnInit {
     departments: any[] = [];
     selectedDepartments: any[] = [];
     notification: {
-        selectedDepartments: any[],
-        subject: string;
-        message: string;
+        recipients: any[],
+        author: string;
+        title: string;
+        body: string;
     };
 
     constructor(private _formBuilder: FormBuilder) {
         this.notification = {
-            selectedDepartments: [],
+            recipients: [],
+            author: 'default',
             subject: '',
             message: ''
         };
@@ -79,9 +81,9 @@ export class MessageStepperComponent implements OnInit {
                 this.selectedDepartments.push(department);
             }
         });
-        this.notification.selectedDepartments = this.selectedDepartments;
-        this.notification.subject = this.firstFormGroup.controls['firstCtrl'].value;
-        this.notification.message = this.firstFormGroup.controls['secondCtrl'].value;
+        this.notification.recipients = this.selectedDepartments;
+        this.notification.title = this.firstFormGroup.controls['firstCtrl'].value;
+        this.notification.body = this.firstFormGroup.controls['secondCtrl'].value;
 
         console.log(this.notification);
     }
