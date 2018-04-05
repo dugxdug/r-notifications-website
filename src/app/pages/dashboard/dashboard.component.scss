@@ -22,8 +22,8 @@ mat-card-header {
 .buttonContainer {
     width: 70%;
     padding: 0;
-    // margin: 100px auto 0px auto;
-    margin-left: -40px;
+    margin: 20px auto 40px auto;
+    // margin-left: -40px;
     list-style: none;
     display: flex;
     justify-content: space-evenly; 
@@ -46,3 +46,28 @@ mat-card-header {
 a {
     text-decoration: none;
 }
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .date-column {
+      width: 60px;
+  }
