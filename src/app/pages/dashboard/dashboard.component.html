@@ -26,7 +26,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div *ngIf="notifications.length > 0">
         <div class="example-header">
           <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -47,7 +47,7 @@
           <!-- Created date Column -->
           <ng-container matColumnDef="date" class="date-column">
             <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.created}} </mat-cell>
+            <mat-cell *matCellDef="let element"> {{element.created | date: 'MM/dd/yyyy'}} </mat-cell>
           </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
