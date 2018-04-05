@@ -52,7 +52,7 @@ export class AuthComponent implements OnInit {
         console.log(res);
         this.token = res.token;
         console.log(this.token);
-        if (res.auth === 'true') {
+        if (res.auth) {
           this.router.navigate(['']);
         } else {
           alert('Invalid credentials');
