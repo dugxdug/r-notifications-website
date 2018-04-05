@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   name: 'Development',
-  reliasAlertsApi: 'http://localhost:3000/'
+  reliasAlertsApi: 'http://localhost:3000/api/v1/'
 };

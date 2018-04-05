@@ -1,5 +1,13 @@
 <mat-toolbar color="primary" class="nav-bar">
-    <mat-toolbar-row>
-      <span routerLink="">Relias Notifications</span>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span routerLink="">Relias Notifications</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu" class="example-icon">
+      <i class="material-icons">account_circle</i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item (click)="logout()">Log out</button>
+    </mat-menu>
+  </mat-toolbar-row>
 </mat-toolbar>

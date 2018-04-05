@@ -1,1 +1,53 @@
-<welcome-message></welcome-message>
+<div class="container">
+  <mat-card class="example-card main-card">
+    <mat-card-header>
+      <div class="textContainer">
+        <span>Welcome To Relias Notifications</span>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <ul class="buttonContainer">
+          <li>
+            <a routerLink="/compose-notification" routerLinkActive="active">
+              <button mat-raised-button color="primary">
+                <i class="material-icons">add_alert</i>
+                <span>Compose Notification</span>
+              </button>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/compose-notification" routerLinkActive="active">
+              <button mat-raised-button color="primary">
+                <i class="material-icons">settings</i>
+                <span>Administrative Tools</span>
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+
+        <mat-table #table [dataSource]="dataSource">
+          <!-- Name Column -->
+          <ng-container matColumnDef="alerts">
+            <mat-header-cell *matHeaderCellDef> Existing Alerts </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+          <!-- Position Column -->
+          <ng-container matColumnDef="date" class="date-column">
+            <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

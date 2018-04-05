@@ -18,4 +18,11 @@ export class AuthService {
       `auth/login`, body, httpOptions);
   }
 
+  logout(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this._http.get<any>(environment.reliasAlertsApi + 'auth/logout', httpOptions);
+  }
+
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,12 +14,15 @@ import { NotificationPageComponent } from './pages/notification/notification.com
 import { MainPageComponent } from './pages/main/main.component';
 
 import { NavbarComponent } from './components/nav-bar/nav-bar.component';
-import { WelcomeMessageComponent } from './components/welcome-message/welcome-message.component';
 import { MessageStepperComponent } from './components/message-stepper/message-stepper.component';
 import { AuthComponent } from './auth/auth.component';
 
 import { AuthService } from './auth/auth.service';
+<<<<<<< HEAD
 import { NotificationsService } from './services/notifications/notifications.service';
+=======
+import { AuthInterceptor } from './auth/auth.interceptor';
+>>>>>>> 526a8a65d2620a843f0405bf9f9b943d3bf9ba4d
 
 @NgModule({
   declarations: [
@@ -28,7 +31,6 @@ import { NotificationsService } from './services/notifications/notifications.ser
     NotificationPageComponent,
     MainPageComponent,
     NavbarComponent,
-    WelcomeMessageComponent,
     MessageStepperComponent,
     AuthComponent
   ],
@@ -42,8 +44,17 @@ import { NotificationsService } from './services/notifications/notifications.ser
     HttpClientModule
   ],
   providers: [
+<<<<<<< HEAD
     AuthService,
     NotificationsService
+=======
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    AuthService
+>>>>>>> 526a8a65d2620a843f0405bf9f9b943d3bf9ba4d
   ],
   bootstrap: [AppComponent]
 })

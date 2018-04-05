@@ -49,9 +49,7 @@ export class AuthComponent implements OnInit {
         password: this.password
       };
       this.authService.login(user).subscribe(res => {
-        console.log(res);
         this.token = res.token;
-        console.log(this.token);
         if (res.auth) {
           this.router.navigate(['']);
         } else {
@@ -65,5 +63,4 @@ export class AuthComponent implements OnInit {
       alert('Invalid credentials');
     }
   }
-
 }
