@@ -4,10 +4,12 @@ import { DashboardPageComponent } from './pages/dashboard/dashboard.component';
 import { NotificationPageComponent } from './pages/notification/notification.component';
 import { MainPageComponent } from './pages/main/main.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [{
   path: '',
   component: MainPageComponent,
+  canActivate: [AuthGuard],
   children: [
     {
       path: '',

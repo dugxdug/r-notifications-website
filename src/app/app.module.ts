@@ -21,6 +21,9 @@ import { AuthService } from './auth/auth.service';
 import { NotificationsService } from './services/notifications/notifications.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
 
+import { UsersService } from './services/users/users.service';
+import { AuthGuard } from './shared/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
       multi: true
     },
     AuthService,
-    NotificationsService
+    NotificationsService,
+    UsersService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { NotificationsService } from '../../services/notifications/notifications.service';
 
 @Component({
@@ -23,7 +24,8 @@ export class MessageStepperComponent implements OnInit {
     };
 
     constructor(private _formBuilder: FormBuilder,
-    private notificationsService: NotificationsService) {
+    private notificationsService: NotificationsService,
+    private router: Router) {
         this.notification = {
             recipients: [],
             author: 'default',
@@ -92,5 +94,7 @@ export class MessageStepperComponent implements OnInit {
         this.notificationsService.sendNotification(this.notification).subscribe(res => {
             console.log(res);
         });
+
+        this.router.navigate(['']);
     }
 }
