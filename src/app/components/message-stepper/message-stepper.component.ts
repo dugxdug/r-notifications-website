@@ -84,7 +84,7 @@ export class MessageStepperComponent implements OnInit {
     sendNotification() {
         this.departments.forEach(department => {
             if (department.selected) {
-                this.selectedDepartments.push(department);
+                this.selectedDepartments.push(department.name);
             }
         });
         this.notification.recipients = this.selectedDepartments;
