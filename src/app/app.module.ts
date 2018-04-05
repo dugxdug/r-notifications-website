@@ -14,7 +14,6 @@ import { NotificationPageComponent } from './pages/notification/notification.com
 import { MainPageComponent } from './pages/main/main.component';
 
 import { NavbarComponent } from './components/nav-bar/nav-bar.component';
-import { WelcomeMessageComponent } from './components/welcome-message/welcome-message.component';
 import { MessageStepperComponent } from './components/message-stepper/message-stepper.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
@@ -27,7 +26,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     NotificationPageComponent,
     MainPageComponent,
     NavbarComponent,
-    WelcomeMessageComponent,
     MessageStepperComponent,
     AuthComponent
   ],
