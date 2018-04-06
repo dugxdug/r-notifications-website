@@ -3,7 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { BehaviorSubject } from 'rxjs/Rx';
-import { Observable } from '@firebase/util';
+import { Observable } from 'rxjs/Rx';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 
@@ -54,16 +54,16 @@ export class MessagingService {
 
   }
 
-  sendMessage(message: FirebaseNotification) {
+  sendMessage(message: FirebaseNotification): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type': 'application/json',
           // tslint:disable-next-line:max-line-length
-          'Authorization': 'AAAAOHfZxB4:APA91bE1-G0sgLWMyQS5nUfm5wfdsu6l-rE4j8T_Khs00uw6rejIH40novho8lVSa26MRWy0Hj9NDvX0z0NQ7QGxxT2n5qqNgm6r6aGGQoqGHkpdxctSFOT81fZUXBlMztaQdwQQ53Ce'
+          'Authorization': 'key=AIzaSyCVzbydYn3cN8O8H0dBP0cX8UuZmmWOxes'
       })
     };
     const body = JSON.stringify(message);
-    this._http.post<any>('https://fcm.googleapis.com/fcm/send', body, httpOptions);
+    return this._http.post<any>('https://fcm.googleapis.com/fcm/send', body, httpOptions);
   }
 }
 
@@ -72,6 +72,6 @@ export class FirebaseNotification {
     title: string,
     body: string
     click_action: string,
-    to: string
   };
+  to: string;
 }
