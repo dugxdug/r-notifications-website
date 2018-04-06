@@ -85,6 +85,7 @@ export class MessageStepperComponent implements OnInit {
         this.notification.recipients = this.selectedDepartments;
         this.notification.title = this.firstFormGroup.controls['firstCtrl'].value;
         this.notification.body = this.firstFormGroup.controls['secondCtrl'].value;
+        this.notification.author = localStorage.getItem('email');
 
         this.notificationsService.sendNotification(this.notification).subscribe(res => {
             console.log(res);
