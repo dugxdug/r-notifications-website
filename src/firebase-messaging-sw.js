@@ -12,7 +12,14 @@ const messaging = firebase.messaging();
 self.addEventListener('push', function (payload) {
     console.log('[Service Worker] Push Received.');
     console.log(`[Service Worker] Push had this data: "${payload.data.text()}"`);
-
-
-    payload.waitUntil(self.registration.showNotification(payload.data));
+    const object = JSON.parse(payload.data.text());
+    // console.log(object);
+    const title = object.notification.title;
+    const options = {
+        body: object.notification.body,
+        icon: object.notification.icon
+    }
+    // console.log(title);
+    // console.log(options);
+    payload.waitUntil(self.registration.showNotification(title, options));
 });
