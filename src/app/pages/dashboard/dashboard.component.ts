@@ -58,7 +58,7 @@ export class DashboardPageComponent implements OnInit {
                 title: event.title,
                 body: event.body,
                 click_action: 'http://reliaslearning.com/',
-                icon: '../../../assets/lion2.png'
+                icon: 'https://r-notifications-website.azurewebsites.net/assets/lion2.png'
             },
             // tslint:disable-next-line:max-line-length
             to: 'cD0bVm1QX-8:APA91bEKyWOhkDVRXcbxlISZCi1LLLFWgvYXFoYZzfSclW0tdeyiVW9IS_dWv8FbeRvee0V-UyCSkZrltC7hR6v4pgWCIoL70D2PI9G_9tvTU5aXNERPrgVJGoEbAoeu9h2GPKGzQWJF',
