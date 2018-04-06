@@ -73,13 +73,15 @@ export class MessageStepperComponent implements OnInit {
             notification: {
                 title: this.notification.title,
                 body: this.notification.body,
-                click_action: 'http://reliaslearning.com/',
-                // tslint:disable-next-line:max-line-length
-                to: 'drRXzBMboiY:APA91bHTtiTyUjetPANQB3WMJZDI1bzBxNFt0_sYAuZG_LmBsGMIufMsKVxKVakHTs15okaavGxWHlWhYoy0GA-EnTx4Bu-ncrXsswjaPqFMlgBdUWMXGhER8nLBQcj96kfaJpKmHv6U'
-            }
+                click_action: 'http://reliaslearning.com/'
+            },
+            // tslint:disable-next-line:max-line-length
+            to: 'cD0bVm1QX-8:APA91bEKyWOhkDVRXcbxlISZCi1LLLFWgvYXFoYZzfSclW0tdeyiVW9IS_dWv8FbeRvee0V-UyCSkZrltC7hR6v4pgWCIoL70D2PI9G_9tvTU5aXNERPrgVJGoEbAoeu9h2GPKGzQWJF',
         };
         console.log(firebase);
-        this.msgService.sendMessage(firebase);
+        this.msgService.sendMessage(firebase).subscribe(res => {
+            console.log(res);
+        });
 
         this.router.navigate(['']);
     }

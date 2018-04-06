@@ -13,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authHeader = localStorage.getItem('token');
     let authReq: HttpRequest<any>;
-    if (authHeader) {
+    if (authHeader && req.url !== 'https://fcm.googleapis.com/fcm/send') {
       authReq = req.clone({setHeaders: { Authorization: authHeader }});
     } else {
       authReq = req.clone();
