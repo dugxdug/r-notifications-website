@@ -59,9 +59,9 @@ export class DashboardPageComponent implements OnInit {
                 body: event.body,
                 click_action: 'http://reliaslearning.com/',
                 icon: '../../../assets/lion2.png'
-                // tslint:disable-next-line:max-line-length
             },
-            to: 'drRXzBMboiY:APA91bHTtiTyUjetPANQB3WMJZDI1bzBxNFt0_sYAuZG_LmBsGMIufMsKVxKVakHTs15okaavGxWHlWhYoy0GA-EnTx4Bu-ncrXsswjaPqFMlgBdUWMXGhER8nLBQcj96kfaJpKmHv6U'
+            // tslint:disable-next-line:max-line-length
+            to: 'cD0bVm1QX-8:APA91bEKyWOhkDVRXcbxlISZCi1LLLFWgvYXFoYZzfSclW0tdeyiVW9IS_dWv8FbeRvee0V-UyCSkZrltC7hR6v4pgWCIoL70D2PI9G_9tvTU5aXNERPrgVJGoEbAoeu9h2GPKGzQWJF',
         };
         this.msgService.sendMessage(firebase);
     }
