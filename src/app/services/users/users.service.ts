@@ -23,10 +23,10 @@ export class UsersService {
     };
 
     return this._http.get<any>(environment.reliasAlertsApi +
-      `users` + email, httpOptions);
+      `users?email=` + email, httpOptions);
   }
 
-  updateUser(user: User): Observable<any> {
+  updateUser(user: User):  Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };

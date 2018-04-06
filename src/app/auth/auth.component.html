@@ -12,13 +12,13 @@
   <mat-card-content>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+        <input matInput placeholder="Username" [(ngModel)]="username" name="username" (keyup.enter)="login()" required>
       </mat-form-field>
     </div>
     <div>
       <!-- <i class="material-icons">lock_outline</i> -->
       <mat-form-field>
-        <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+        <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" (keyup.enter)="login()" required>
       </mat-form-field>
     </div>
   </mat-card-content>

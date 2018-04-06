@@ -14,7 +14,7 @@ export class DepartmentService {
     };
 
     return this._http.get<any>(environment.reliasAlertsApi +
-      `departments/getAll`, httpOptions);
+      `departments`, httpOptions);
   }
 
 }

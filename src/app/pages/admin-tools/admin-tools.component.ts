@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { UsersService } from '../../services/users/users.service';
+import { Router } from '@angular/router';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -13,7 +14,8 @@ export class AdminToolsPageComponent implements OnInit {
     displayedColumns = ['name', 'email', 'notificationPref', 'departments'];
     USER_LIST: Array<User> = [];
     dataSource: MatTableDataSource<User>;
-    constructor(private usersService: UsersService) {}
+    constructor(private usersService: UsersService,
+    private router: Router) {}
 
     ngOnInit() {
         this.usersService.getAllUsers().subscribe((res) => {
@@ -31,7 +33,7 @@ export class AdminToolsPageComponent implements OnInit {
     }
 
     rowClicked(userInfo: any) {
-        console.log(userInfo);
+        this.router.navigate(['admin-tools/edit-user', { email: userInfo.email }]);
     }
 }
 

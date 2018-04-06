@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/ro
 import { NotificationsService } from '../../services/notifications/notifications.service';
 import { Notification } from '../../pages/notification/notification.model';
 import { MessagingService, FirebaseNotification } from '../../messaging/messaging.service';
+import { DepartmentService } from '../../services/departments/departments.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -22,6 +23,7 @@ export class MessageStepperComponent implements OnInit {
     constructor(private _formBuilder: FormBuilder,
     private notificationsService: NotificationsService,
     private msgService: MessagingService,
+    private departmentService: DepartmentService,
     private router: Router) {
         this.notification = {
             recipients: [],
@@ -30,38 +32,6 @@ export class MessageStepperComponent implements OnInit {
             body: '',
             type: 'email'
         };
-        this.departments.push({
-            name: 'Engineering',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Sales',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Marketing Research',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Project Management',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Human Resources',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Content',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Implementations',
-            selected: false
-        });
-        this.departments.push({
-            name: 'Finance',
-            selected: false
-        });
     }
 
     ngOnInit() {
@@ -71,6 +41,12 @@ export class MessageStepperComponent implements OnInit {
         });
         this.secondFormGroup = this._formBuilder.group({
         });
+        this.departmentService.getDepartments().subscribe(depts => depts.forEach(dept => {
+            this.departments.push({
+                name: dept.name,
+                selected: false
+            });
+        }));
     }
 
     gridClicked(selectedDepartment: string) {
