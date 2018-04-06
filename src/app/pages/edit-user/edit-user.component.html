@@ -7,29 +7,35 @@
         </mat-card-header>
         <mat-card-content>
             <div class="example-container">
-                <mat-form-field>
-                    <input matInput placeholder="Name" [(ngModel)]="selectedEmail">
-                </mat-form-field>
-                
-                <mat-form-field>
-                    <input matInput placeholder="Email" [(ngModel)]="selectedName">
-                </mat-form-field>
-                
-                <mat-form-field>
-                    <mat-select placeholder="Department" [(ngModel)]="selectedDepartment" name="department">
-                        <mat-option *ngFor="let department of departments" [value]="department.name">{{department.name}}</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                <form>
+                    <div class="formContainer">
+                        <mat-form-field>
+                            <input matInput placeholder="Name" [(ngModel)]="selectedEmail" name="Name">
+                        </mat-form-field>
+                        
+                        <mat-form-field>
+                            <input matInput placeholder="Email" [(ngModel)]="selectedName" name="Email">
+                        </mat-form-field>
+                    </div>
+                    <div class="formContainer">
+                        <mat-form-field>
+                            <mat-select placeholder="Department" [(ngModel)]="selectedDepartment" name="department">
+                                <mat-option *ngFor="let department of departments" [value]="department.name">{{department.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
-                <mat-form-field>
-                    <mat-select placeholder="Notification Perferences" [(ngModel)]="selectedPerference" name="perference">
-                        <mat-option value="Email">Email</mat-option>
-                        <mat-option value="Slack">Slack</mat-option>
-                    </mat-select>
-                </mat-form-field>
-
+                        <mat-form-field>
+                            <mat-select placeholder="Notification Perferences" [(ngModel)]="selectedPerference" name="perference">
+                                <mat-option value="Email">Email</mat-option>
+                                <mat-option value="Slack">Slack</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </form>
                 <div class="buttonContainer-between">
-                    <button mat-raised-button color="primary" (click)="backToList()">Back To Users</button>
+                    <a routerLink="/admin-tools" routerLinkActive="active">
+                        <button mat-raised-button color="primary" (click)="backToList()">Back To Users</button>
+                    </a>
                     <button mat-raised-button color="primary" (click)="updateUser()">Update User</button>
                 </div>
             </div>

@@ -52,6 +52,10 @@ a {
     text-decoration: none;
 }
 
+mat-row:hover {
+    background-color: rgba(228, 227, 227, 0.4);
+}
+
 .example-container {
     display: flex;
     flex-direction: column;

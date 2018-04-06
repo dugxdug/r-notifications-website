@@ -30,7 +30,7 @@
                         <mat-cell *matCellDef="let element"> {{element.departments}} </mat-cell>
                     </ng-container>
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row (click)="rowClicked(displayedColumns)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    <mat-row (click)="rowClicked(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
                 </mat-table>
             </div>
         </mat-card-content>
