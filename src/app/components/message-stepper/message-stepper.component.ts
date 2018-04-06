@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { NotificationsService } from '../../services/notifications/notifications.service';
 import { Notification } from '../../pages/notification/notification.model';
+import { MessagingService, FirebaseNotification } from '../../messaging/messaging.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -20,6 +21,7 @@ export class MessageStepperComponent implements OnInit {
 
     constructor(private _formBuilder: FormBuilder,
     private notificationsService: NotificationsService,
+    private msgService: MessagingService,
     private router: Router) {
         this.notification = {
             recipients: [],
@@ -89,6 +91,18 @@ export class MessageStepperComponent implements OnInit {
         this.notificationsService.sendNotification(this.notification).subscribe(res => {
             console.log(res);
         });
+
+        const firebase: FirebaseNotification = {
+            notification: {
+                title: this.notification.title,
+                body: this.notification.body,
+                click_action: 'http://reliaslearning.com/',
+                // tslint:disable-next-line:max-line-length
+                to: 'drRXzBMboiY:APA91bHTtiTyUjetPANQB3WMJZDI1bzBxNFt0_sYAuZG_LmBsGMIufMsKVxKVakHTs15okaavGxWHlWhYoy0GA-EnTx4Bu-ncrXsswjaPqFMlgBdUWMXGhER8nLBQcj96kfaJpKmHv6U'
+            }
+        };
+        console.log(firebase);
+        this.msgService.sendMessage(firebase);
 
         this.router.navigate(['']);
     }

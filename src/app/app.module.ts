@@ -24,6 +24,12 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { UsersService } from './services/users/users.service';
 import { AuthGuard } from './shared/auth.guard';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { MessagingService } from './messaging/messaging.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +47,10 @@ import { AuthGuard } from './shared/auth.guard';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
     {
@@ -52,7 +61,8 @@ import { AuthGuard } from './shared/auth.guard';
     AuthService,
     NotificationsService,
     UsersService,
-    AuthGuard
+    AuthGuard,
+    MessagingService
   ],
   bootstrap: [AppComponent]
 })
