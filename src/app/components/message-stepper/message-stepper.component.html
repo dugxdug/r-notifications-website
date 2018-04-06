@@ -20,8 +20,8 @@
                     <form [formGroup]="secondFormGroup">
                         <ng-template matStepLabel>Select Recipient Groups</ng-template>
                         <mat-grid-list cols="4" rowHeight="200px" gutterSize="30px" class="gridContainer">
-                            <mat-grid-tile *ngFor="let department of departments" (click)="gridClicked(department.name)" 
-                            [ngStyle]="{'background-color':department.selected ? 'rgba(0, 24, 158, 1)' : 'rgba(0, 24, 158, .5)'}">{{department.name}}</mat-grid-tile>
+                            <mat-grid-tile class="grid-button" *ngFor="let department of departments" (click)="gridClicked(department.name)" 
+                            [ngClass]="{selectedButton: department.selected}">{{department.name}}</mat-grid-tile>
                         </mat-grid-list>
                         <div class="buttonContainer-between">
                             <button mat-raised-button color="primary" matStepperPrevious>Previous Step</button>
