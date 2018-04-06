@@ -9,3 +9,10 @@ firebase.initializeApp({
     messagingSenderId: "242528928798"
 });
 const messaging = firebase.messaging();
+self.addEventListener('push', function (payload) {
+    console.log('[Service Worker] Push Received.');
+    console.log(`[Service Worker] Push had this data: "${payload.data.text()}"`);
+
+
+    payload.waitUntil(self.registration.showNotification(payload.data));
+});

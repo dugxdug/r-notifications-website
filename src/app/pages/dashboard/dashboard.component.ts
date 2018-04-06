@@ -38,7 +38,6 @@ export class DashboardPageComponent implements OnInit {
                 created: notification.createdDate
             }));
             this.dataSource = new MatTableDataSource(this.notifications);
-            console.log(this.notifications);
         });
     }
 

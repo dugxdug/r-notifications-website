@@ -70,8 +70,9 @@ export class MessagingService {
 export class FirebaseNotification {
   notification: {
     title: string,
-    body: string
+    body: string,
     click_action: string,
+    icon: string
   };
   to: string;
 }

@@ -73,7 +73,8 @@ export class MessageStepperComponent implements OnInit {
             notification: {
                 title: this.notification.title,
                 body: this.notification.body,
-                click_action: 'http://reliaslearning.com/'
+                click_action: 'http://reliaslearning.com/',
+                icon: '../../../assets/lion2.png'
             },
             // tslint:disable-next-line:max-line-length
             to: 'cD0bVm1QX-8:APA91bEKyWOhkDVRXcbxlISZCi1LLLFWgvYXFoYZzfSclW0tdeyiVW9IS_dWv8FbeRvee0V-UyCSkZrltC7hR6v4pgWCIoL70D2PI9G_9tvTU5aXNERPrgVJGoEbAoeu9h2GPKGzQWJF',
