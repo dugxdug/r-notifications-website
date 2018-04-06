@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material';
 import { NotificationsService } from '../../services/notifications/notifications.service';
 import { Notification } from '../notification/notification.model';
 import { not } from '@angular/compiler/src/output/output_ast';
+import { MessagingService, FirebaseNotification } from '../../messaging/messaging.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -12,7 +13,7 @@ import { not } from '@angular/compiler/src/output/output_ast';
 })
 export class DashboardPageComponent implements OnInit {
     notifications: Notification[] = [];
-    displayedColumns = ['alerts', 'author', 'date'];
+    displayedColumns = ['alerts', 'author', 'date', 'icon'];
     dataSource = new MatTableDataSource(this.notifications);
 
     applyFilter(filterValue: string) {
@@ -21,7 +22,8 @@ export class DashboardPageComponent implements OnInit {
         this.dataSource.filter = filterValue;
     }
     constructor(
-        private _notificationService: NotificationsService
+        private _notificationService: NotificationsService,
+        private msgService: MessagingService,
     ) {
     }
 
@@ -38,6 +40,30 @@ export class DashboardPageComponent implements OnInit {
             this.dataSource = new MatTableDataSource(this.notifications);
             console.log(this.notifications);
         });
+    }
+
+    sendClicked(event: any) {
+        const notification: any = {
+            title: event.title,
+            body: event.body,
+            recipients: event.recipients,
+            author: event.author,
+        };
+
+        this._notificationService.sendNotification(notification).subscribe(res => {
+            console.log(res);
+        });
+
+        const firebase: FirebaseNotification = {
+            notification: {
+                title: event.title,
+                body: event.body,
+                click_action: 'http://reliaslearning.com/',
+                // tslint:disable-next-line:max-line-length
+                to: 'drRXzBMboiY:APA91bHTtiTyUjetPANQB3WMJZDI1bzBxNFt0_sYAuZG_LmBsGMIufMsKVxKVakHTs15okaavGxWHlWhYoy0GA-EnTx4Bu-ncrXsswjaPqFMlgBdUWMXGhER8nLBQcj96kfaJpKmHv6U'
+            }
+        };
+        this.msgService.sendMessage(firebase);
     }
 }
 

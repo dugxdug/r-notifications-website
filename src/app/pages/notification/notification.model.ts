@@ -5,4 +5,5 @@ export class Notification {
   body: string;
   type?: string;
   created?: Date;
+  _id?: string;
 }
