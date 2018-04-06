@@ -1,0 +1,38 @@
+<div class="container">
+    <mat-card class="example-card main-card">
+        <mat-card-header>
+            <div class="textContainer">
+                <span>Administractive Tools - User List</span>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <div class="example-header">
+                    <mat-form-field>
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                    </mat-form-field>
+                </div>
+                <mat-table #table [dataSource]="dataSource">
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef> User's Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="email">
+                        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="notificationPref">
+                        <mat-header-cell *matHeaderCellDef> Perferences </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.notificationPref}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="departments">
+                        <mat-header-cell *matHeaderCellDef> Departments </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.departments}} </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row (click)="rowClicked(displayedColumns)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

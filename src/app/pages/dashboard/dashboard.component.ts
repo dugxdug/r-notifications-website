@@ -45,7 +45,8 @@ export interface Element {
     name: string;
     position: string;
   }
-  const ELEMENT_DATA: Element[] = [
+
+const ELEMENT_DATA: Element[] = [
     {position: '1/3/2018', name: 'Sample Alert 1'},
     {position: '1/3/2018', name: 'Sample Alert 2'},
     {position: '1/3/2018', name: 'Sample Alert 3'},
@@ -55,4 +56,4 @@ export interface Element {
     {position: '1/3/2018', name: 'Sample Alert 7'},
     {position: '1/3/2018', name: 'Sample Alert 8'},
     {position: '1/3/2018', name: 'Sample Alert 9'},
-  ];
+];

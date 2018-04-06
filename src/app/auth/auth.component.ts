@@ -51,7 +51,8 @@ export class AuthComponent implements OnInit {
       this.authService.login(user).subscribe(res => {
         this.token = res.token;
         if (res.auth) {
-          localStorage.setItem('user', this.b64EncodeUnicode(JSON.stringify(res.user)));
+          localStorage.setItem('user', res.user.name);
+          localStorage.setItem('email', res.user.email);
           localStorage.setItem('token', res.token);
           this.router.navigate(['']);
         } else {

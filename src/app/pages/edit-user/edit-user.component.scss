@@ -1,0 +1,29 @@
+.container {
+    min-height: 70%;
+    display: block;
+}
+
+mat-card-header {
+    padding-bottom: 10px;
+    border-bottom: .5px solid lightgray;
+
+    span {
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+
+.buttonContainer-between {
+    width: 100%;
+    padding: 0;
+    margin: 100px auto 0px auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 2px 60px;
+    font-size: 24px;
+}
